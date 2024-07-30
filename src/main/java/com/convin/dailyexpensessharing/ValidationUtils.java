@@ -1,17 +1,15 @@
 package com.convin.dailyexpensessharing;
 
+import com.convin.dailyexpensessharing.Expense;
+
 public class ValidationUtils {
     public static boolean validateExpense(Expense expense){
-        switch (expense.getSplitType()) {
-            case "exact":
-                return validateExactSplit(expense);
-            case "percentage":
-                return validatePercentageSplit(expense);
-            case "equal":
-                return validateEqualSplit(expense);
-            default:
-                return false;
-        }
+        return switch (expense.getSplitType()) {
+            case "exact" -> validateExactSplit(expense);
+            case "percentage" -> validatePercentageSplit(expense);
+            case "equal" -> validateEqualSplit(expense);
+            default -> false;
+        };
     }
     private static boolean validateExactSplit(Expense expense) {
         double total = expense.getSplits().stream().mapToDouble(Expense.Split::getAmount).sum();

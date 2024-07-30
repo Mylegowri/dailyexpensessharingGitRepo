@@ -1,5 +1,7 @@
 package com.convin.dailyexpensessharing;
 
+import com.convin.dailyexpensessharing.Expense;
+import com.convin.dailyexpensessharing.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
